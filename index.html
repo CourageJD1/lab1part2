@@ -2,77 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Store</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>My Labs</title>
 </head>
 <body>
-    <div id="petstore">
-        <h1>{{message}}</h1>
-
-        <button v-on:click="showCheckout()" v-bind:disabled="numberOfItems == 0">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Checkout ({{numberOfItems}})
-        </button>
-
-        <div v-if="!displayCart">
-            <img v-bind:src="image" alt="A Koala" height="300" width="300">
-            <h2 v-text="product.title"></h2>
-            <p v-text="product.id"></p>
-            <p v-text="product.description"></p>
-            <p>Price: ${{product.price}}</p>
-            <p>Available: {{product.available}}</p>
-            <button v-on:click="addToCart()" v-bind:disabled="!canAddToCart">Add to Cart</button>
-        </div>
-
-        <div v-else>
-            <h2>Checkout</h2>
-        </div>
-    </div>
-
-    <script>
-        const { createApp } = Vue;
-        const myApp = createApp({
-            data() {
-                return {
-                    message: 'Welcome to the Pet Store',
-                    product: {
-                        id: 1,
-                        title: 'Koala',
-                        description: 'A cute koala bear.',
-                        price: 29.99,
-                        available: 5
-                    },
-                    image: 'images/koalaSmall.jpg',
-                    cart: [],
-                    displayCart: false
-                }
-            },
-            methods: {
-                addToCart() {
-                    this.cart.push(this.product.id);
-                    this.product.available = this.product.available - 1;
-                    },
-
-                showCheckout() {
-                    this.displayCart = this.displayCart ? false : true;
-                }
-            },
-            computed: {
-                canAddToCart() {
-                    if (this.product.available > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                },
-
-                numberOfItems() {
-                    return this.cart.length;
-                }
-            }
-        });
-        myApp.mount('#petstore');
-    </script>
+    <h1>My Labs</h1>
+    <a href="pet-store.html">Pet Store</a>
 </body>
-</html> 
+</html>
